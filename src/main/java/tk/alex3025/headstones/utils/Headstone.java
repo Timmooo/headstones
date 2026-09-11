@@ -12,6 +12,9 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.Particle;
+import org.bukkit.Color;
+import org.bukkit.Particle.DustOptions;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import tk.alex3025.headstones.Headstones;
@@ -110,7 +113,7 @@ public class Headstone {
 
         event.setDropItems(Headstones.getInstance().getConfig().getBoolean("drop-player-head"));
 
-        player.spawnParticle(Particle.REDSTONE, this.location.add(0.5, 0.2, 0.5), 10, 0.2, 0.1, 0.2, new Particle.DustOptions(Color.fromRGB(255, 255, 255), 1.5F));
+        player.spawnParticle(Particle.DUST, this.location.add(0.5, 0.2, 0.5), 10, 0.2, 0.1, 0.2, new Particle.DustOptions(Color.fromRGB(255, 255, 255), 1.5F));
         player.playSound(this.location, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 2.0F, 1.0F);
 
         new Message(player).translation("headstone-broken").prefixed(false).send();

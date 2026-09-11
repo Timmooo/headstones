@@ -3,8 +3,8 @@ description: Don't lose your precious items when you die!
 authors: [ alex3025 ]
 website: https://alex3025.tk
 
-version: '${project.version}'
-api-version: 1.18
+version: '${version}'
+api-version: 1.21
 main: tk.alex3025.headstones.Headstones
 
 commands:
