@@ -1,6 +1,6 @@
 name: Headstones
 description: Don't lose your precious items when you die!
-authors: [ alex3025 ]
+authors: [ alex3025, timmooo ]
 website: https://alex3025.tk
 
 version: '${version}'
