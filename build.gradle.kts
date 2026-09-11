@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "tk.alex3025"
-version = "1.0.1"
+version = "1.2.0"
 
 java {
     toolchain {
