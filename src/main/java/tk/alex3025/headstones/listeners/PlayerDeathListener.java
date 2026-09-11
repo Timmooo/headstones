@@ -1,6 +1,6 @@
 package tk.alex3025.headstones.listeners;
 
-import com.bgsoftware.wildloaders.api.npc.ChunkLoaderNPC;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -15,8 +15,18 @@ public class PlayerDeathListener extends ListenerBase {
     public void onPlayerDeath(@NotNull PlayerDeathEvent event) {
         Player player = event.getPlayer();
 
-        // Check if the player is a chunk loader from the WildLoaders plugin
-        if (player instanceof ChunkLoaderNPC) return;
+
+        // Skip if WildLoaders' ChunkLoaderNPC (without hard dependency)
+        if (Bukkit.getPluginManager().isPluginEnabled("WildLoaders")) {
+            try {
+                Class<?> chunkLoaderClazz = Class.forName("com.bgsoftware.wildloaders.api.npc.ChunkLoaderNPC");
+                if (chunkLoaderClazz.isInstance(player)) {
+                    return;
+                }
+            } catch (ClassNotFoundException ignored) {
+            // WildLoaders not on classpath after all; proceed normally
+            }
+        }
 
         boolean keepExperience = !event.getKeepLevel() && player.hasPermission("headstones.keep-experience");
         boolean keepInventory = !event.getKeepInventory() && player.hasPermission("headstones.keep-inventory");
