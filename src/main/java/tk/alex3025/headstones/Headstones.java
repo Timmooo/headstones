@@ -8,6 +8,7 @@ import tk.alex3025.headstones.commands.subcommands.ReloadConfigCommand;
 import tk.alex3025.headstones.listeners.BlockBreakListener;
 import tk.alex3025.headstones.listeners.PlayerDeathListener;
 import tk.alex3025.headstones.listeners.RightClickListener;
+import tk.alex3025.headstones.listeners.WaterListener;
 import tk.alex3025.headstones.utils.ConfigFile;
 
 public final class Headstones extends JavaPlugin {
@@ -42,6 +43,7 @@ public final class Headstones extends JavaPlugin {
         new PlayerDeathListener();
         new BlockBreakListener();
         new RightClickListener();
+        new WaterListener();
     }
 
     private void registerCommands() {
