@@ -4,7 +4,7 @@ authors: [ alex3025, timmooo ]
 website: https://alex3025.tk
 
 version: '${version}'
-api-version: 1.21
+api-version: '26.2'
 main: tk.alex3025.headstones.Headstones
 
 softdepend: [WildLoaders]
